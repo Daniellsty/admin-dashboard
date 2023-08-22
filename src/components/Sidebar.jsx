@@ -11,49 +11,50 @@ const Sidebar = () => {
   const {activeMenu,setActiveMenu} = useActiveMenu()
 
 
-  const activeLink = 'flex items-center  px-7'
-  const normalLink = 'flex items-center  px-7 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray '
+  const activeLink = 'flex items-center my-1 p-4 '
+  const normalLink = 'flex items-center my-1  p-4 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray '
    return (
-    <div className='h-screen overflow-scroll  md:overflow-hidden md:hover:overflow-auto '>
-     
-    {activeMenu && 
-     <div  >
-     <div className='flex items-center justify-between p-4 font-bold'  >
-      <div className='flex items-center mt-5'>
-       <SiShopware/>
-       <span className='mx-2 text-2xl'>shopy</span>
-
-      </div>
-      <div className='flex mt-2 hover:cursor-pointer'>
-        <TooltipComponent  content='close' position='TOp' >
-        <MdOutlineCancel onClick={()=> setActiveMenu(false) } size={22} className=' mt-3 ' />
-
-        </TooltipComponent>
-      </div>
-     </div>
-     {links.map((item)=>(
-        <div  key={item.title} >
-          <p className='m-3 mx-5 mt-4 uppercase text-gray-400 '>{item.title}</p>
-
-          {item.links.map((link)=>(
-
-            <div>
-              <NavLink 
-              to={`/${link.name}`} 
-              key={link.name} 
-              className={activeMenu ? normalLink : activeLink }
+    <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
+      {activeMenu && (
+        <>
+          <div className="flex justify-between items-center">
+            <NavLink to="/"  className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
+              <SiShopware /> <span>Shoppy</span>
+            </NavLink>
+            <TooltipComponent content="close" position="BottomCenter">
+              <button
+                type="button"
+                onClick={() => setActiveMenu(!activeMenu)}
+              
+                className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
               >
-                {link.icon}
-                <span className='capitalize my-3  mx-2'>{link.name}</span>
-              </NavLink>
-            </div>
-          ))}
-        </div>
-
-     ))}
-      </div>
-    
-    }
+                <MdOutlineCancel />
+              </button>
+            </TooltipComponent>
+          </div>
+          <div className="mt-10 ">
+            {links.map((item) => (
+              <div key={item.title}>
+                <p className="text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase">
+                  {item.title}
+                </p>
+                {item.links.map((link) => (
+                  <NavLink
+                    to={`/${link.name}`}
+                    key={link.name}
+                    
+                   
+                    className={({ isActive }) => (isActive ? activeLink : normalLink)}
+                  >
+                    {link.icon}
+                    <span className="capitalize mx-2 ">{link.name}</span>
+                  </NavLink>
+                ))}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
 }
