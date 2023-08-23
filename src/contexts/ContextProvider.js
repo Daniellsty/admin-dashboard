@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const StateContext = createContext()
 
@@ -21,13 +21,13 @@ const ContextProvider = ({children}) => {
 
     const setMode=(e)=>{
         setCurrentMode(e.target.value)
-        localStorage.setItem('currentMode',e.target.value)
+       
         setThemeSetting(false)
     }
 
     const setColor=(e)=>{
         setCurrentColor(e)
-        localStorage.setItem('currentColor',e)
+       
 
         setThemeSetting(false)
 
@@ -41,6 +41,9 @@ const ContextProvider = ({children}) => {
     const cancelhandleClick=(clicked)=>{
         setClicked({...initialState , [clicked]:false })
     }
+
+   
+
     return ( 
         <StateContext.Provider value={{activeMenu,setActiveMenu,clicked,setClicked,handleClick,screenSize,setScreenSize,currentColor,currentMode,setCurrentColor,setCurrentMode,setColor,setMode,setThemeSetting,themeSetting,cancelhandleClick}}>
             {children}

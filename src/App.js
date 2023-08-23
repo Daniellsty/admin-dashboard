@@ -26,7 +26,7 @@ import { useActiveMenu } from "./contexts/ContextProvider";
 
 function App() {
   const { activeMenu, setActiveMenu,themeSetting ,setThemeSetting,currentColor,currentMode} = useActiveMenu();
-  
+
 
   return (
     <div className={currentMode === 'Dark' ? 'dark' : '' }>
