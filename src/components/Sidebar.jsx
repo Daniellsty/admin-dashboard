@@ -8,8 +8,13 @@ import { useActiveMenu } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
 
-  const {activeMenu,setActiveMenu} = useActiveMenu()
+  const {activeMenu,setActiveMenu,screenSize} = useActiveMenu()
 
+  const handleCloseSideBar =()=>{
+    if(activeMenu === true && screenSize <= 900 ){
+      setActiveMenu(false)
+    }
+  }
 
   const activeLink = 'flex items-center my-1 p-4 '
   const normalLink = 'flex items-center my-1  p-4 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray '
@@ -24,7 +29,7 @@ const Sidebar = () => {
             <TooltipComponent content="close" position="BottomCenter">
               <button
                 type="button"
-                onClick={() => setActiveMenu(!activeMenu)}
+                onClick={handleCloseSideBar}
               
                 className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
               >
@@ -42,7 +47,7 @@ const Sidebar = () => {
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
-                    
+                    onClick={handleCloseSideBar}
                    
                     className={({ isActive }) => (isActive ? activeLink : normalLink)}
                   >
