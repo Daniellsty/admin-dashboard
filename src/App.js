@@ -25,8 +25,8 @@ import {
 import { useActiveMenu } from "./contexts/ContextProvider";
 
 function App() {
-  const { activeMenu, setActiveMenu } = useActiveMenu();
-
+  const { activeMenu, setActiveMenu,themeSetting ,setThemeSetting} = useActiveMenu();
+  console.log(themeSetting);
   return (
     <div>
       <BrowserRouter>
@@ -37,7 +37,7 @@ function App() {
                 type="button"
                 style={{ color: "blue" }}
                 className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray">
-                <FiSettings />
+                <FiSettings onClick={()=> setThemeSetting(true)} />
               </button>
             </TooltipComponent>
           </div>
@@ -60,6 +60,8 @@ function App() {
               <Navbar />
             </div>
             <div>
+
+              { themeSetting && <ThemeSettings/>}
               <Routes>
                
                 <Route path="/" element={<Ecommerce />} />
