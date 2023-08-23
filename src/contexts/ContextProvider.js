@@ -37,8 +37,12 @@ const ContextProvider = ({children}) => {
         setClicked({...initialState , [clicked]:true })
     }
 
+       
+    const cancelhandleClick=(clicked)=>{
+        setClicked({...initialState , [clicked]:false })
+    }
     return ( 
-        <StateContext.Provider value={{activeMenu,setActiveMenu,clicked,setClicked,handleClick,screenSize,setScreenSize,currentColor,currentMode,setCurrentColor,setCurrentMode,setColor,setMode,setThemeSetting,themeSetting}}>
+        <StateContext.Provider value={{activeMenu,setActiveMenu,clicked,setClicked,handleClick,screenSize,setScreenSize,currentColor,currentMode,setCurrentColor,setCurrentMode,setColor,setMode,setThemeSetting,themeSetting,cancelhandleClick}}>
             {children}
         </StateContext.Provider>
      );

@@ -1,8 +1,11 @@
 import React from "react";
+import { useActiveMenu } from "../contexts/ContextProvider";
 
 const Button = ({bgColor, color, size, text, borderRadius}) => {
+  const { cancelhandleClick } = useActiveMenu();
+
   return <div>
-    <button style={{backgroundColor:bgColor,color,borderRadius}} 
+    <button onClick={()=> cancelhandleClick('profile')} style={{backgroundColor:bgColor,color,borderRadius}} 
     className={`text-${size} p-3 hover:drop-shadow-xl`}
     >
       {text}
