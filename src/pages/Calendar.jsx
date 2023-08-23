@@ -20,7 +20,7 @@ const Calendar = () => {
 
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg dark:text-gray-200 ">
     <Header  title="Calendar" />
     <ScheduleComponent
       height="650px"
@@ -28,6 +28,7 @@ const Calendar = () => {
       selectedDate={new Date(2021, 0, 10)}
       eventSettings={{ dataSource: scheduleData }}
       dragStart={onDragStart}
+      
     >
       <ViewsDirective>
         { ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'].map((item) => <ViewDirective key={item} option={item} />)}
@@ -47,6 +48,8 @@ const Calendar = () => {
                 placeholder="Current Date"
                 floatLabelType="Always"
                 change={change}
+                
+                
               />
             </td>
           </tr>

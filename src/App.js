@@ -25,11 +25,11 @@ import {
 import { useActiveMenu } from "./contexts/ContextProvider";
 
 function App() {
-  const { activeMenu, setActiveMenu,themeSetting ,setThemeSetting,currentColor} = useActiveMenu();
+  const { activeMenu, setActiveMenu,themeSetting ,setThemeSetting,currentColor,currentMode} = useActiveMenu();
   
 
   return (
-    <div>
+    <div className={currentMode === 'Dark' ? 'dark' : '' }>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>

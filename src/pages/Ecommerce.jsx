@@ -9,8 +9,8 @@ import { useActiveMenu } from "../contexts/ContextProvider";
 const Ecommerce = () => {
   const {currentColor} = useActiveMenu()
   return (
-    <div className="mt-24 ">
-      <div className="flex flex-wrap  lg:flex-nowrap px-5">
+    <div className="mt-24  dark:text-gray-200 dark:bg-secondry-dark-bg">
+      <div className="flex flex-wrap  lg:flex-nowrap px-5 ">
         <div className=" flex flex-col items-start justify-center p-5 w-full h-72 bg-hero-pattern bg-no-repeat bg-center bg-cover bg-center">
           <h1 className="text-gray-400 font-bold capitalize z-10">earnings</h1>
           <h1 className="text-black font-bold text-2xl">$ 323,323.32</h1>
@@ -25,7 +25,7 @@ const Ecommerce = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap   gap-1 justify-center items-center ">
+        <div className="flex flex-wrap   gap-10 mx-auto justify-center items-center my-5">
           {earningData.map((item) => (
             <div
               key={item.title}
@@ -47,7 +47,7 @@ const Ecommerce = () => {
           ))}
         </div>
       </div>
-      <div className="mx-5  p-3 my-5 bg-white rounded-lg">
+      <div className="mx-5  p-3 my-5 rounded-lg">
         <div className="flex flex-col  ">
           <div className="flex justify-between ">
             <h1 className="text-2xl font-bold">Revenue Updates</h1>
@@ -64,7 +64,7 @@ const Ecommerce = () => {
           </div>
 
           <div className="flex flex-col md:flex-row justify-center ">
-            <div className="flex md:w-1/2 w-full flex-col border-r mx-5">
+            <div className="flex mx-auto flex-col border-r mx-5 ">
               <div className="">
                 <div className="flex items-center mt-5">
                   <h1 className="text-3xl font-bold ">$85,235</h1>
@@ -85,7 +85,7 @@ const Ecommerce = () => {
                   <h1 className="capitalize text-gray-400 my-2">expense</h1>
                 </div>
               </div>
-              <div className="mt-5 mx-5">
+              <div className="mt-5 mx-5  dark:bg-secondry-dark-bg ">
                 <SparkLine
                   currentColor="blue"
                   id="line-sparkline"
@@ -106,8 +106,8 @@ const Ecommerce = () => {
                 />
               </div>
             </div>
-            <div className="md:w-1/2 w-full mx-auto text-center">
-              <Stacked width="320px" height="360px" />
+            <div className="mx-auto text-center  my-5">
+              <Stacked  width="320px" height="360px" />
             </div>
           </div>
         </div>

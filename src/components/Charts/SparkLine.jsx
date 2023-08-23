@@ -7,6 +7,8 @@ class SparkLine extends React.PureComponent {
     const { id, height, width, color, data, type, currentColor } = this.props;
 
     return (
+      <div className=''>
+
       <SparklineComponent
         id={id}
         height={height}
@@ -31,6 +33,7 @@ class SparkLine extends React.PureComponent {
       >
         <Inject services={[SparklineTooltip]} />
       </SparklineComponent>
+      </div>
     );
   }
 }

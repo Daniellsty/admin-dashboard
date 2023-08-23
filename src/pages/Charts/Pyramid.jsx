@@ -3,8 +3,11 @@ import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, Accu
 
 import { PyramidData } from '../../data/dummy';
 import { ChartsHeader } from '../../components';
+import { useActiveMenu } from '../../contexts/ContextProvider';
 
 const Pyramid = () => {
+
+  const {currentMode} = useActiveMenu()
 
   return (
     <div className="m-4 md:m-10 mt-24  p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
@@ -14,6 +17,7 @@ const Pyramid = () => {
           id="pyramid-chart"
           legendSettings={{ background: 'white' }}
           tooltip={{ enable: true }}
+          background={ currentMode === 'Dark' ? '#33373E' :'#fff'  }
         >
           <Inject services={[AccumulationDataLabel, AccumulationTooltip, PyramidSeries, AccumulationLegend, AccumulationSelection]} />
           <AccumulationSeriesCollectionDirective>
@@ -34,7 +38,10 @@ const Pyramid = () => {
                 position: 'Inside',
                 name: 'text',
               }}
+              
+              
             />
+            
           </AccumulationSeriesCollectionDirective>
         </AccumulationChartComponent>
       </div>

@@ -1,15 +1,17 @@
 import React from 'react';
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationLegend, PieSeries, AccumulationDataLabel, Inject, AccumulationTooltip } from '@syncfusion/ej2-react-charts';
 
-import { useStateContext } from '../../contexts/ContextProvider';
+import { useActiveMenu, useStateContext } from '../../contexts/ContextProvider';
 
 const Pie = ({ id, data, legendVisiblity, height }) => {
+
+  const {currentMode} = useActiveMenu()
   return (
     <AccumulationChartComponent
       id={id}
-      legendSettings={{ visible: legendVisiblity, background: 'white' }}
+      legendSettings={{ visible: legendVisiblity, }}
       height={height}
-  
+      background={ currentMode === 'Dark' ? '#33373E' :'#fff'  }
       tooltip={{ enable: true }}
     >
       <Inject services={[AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip]} />
@@ -32,10 +34,14 @@ const Pie = ({ id, data, legendVisiblity, height }) => {
             position: 'Inside',
             font: {
               fontWeight: '600',
-              color: '#fff',
+              color:`${currentMode === 'Dark' ? '#33373E' :'#fff' }`
             },
+            
           }}
+          
+          
         />
+        
       </AccumulationSeriesCollectionDirective>
     </AccumulationChartComponent>
   )

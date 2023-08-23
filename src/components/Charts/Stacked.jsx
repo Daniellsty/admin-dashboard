@@ -2,12 +2,15 @@ import React from 'react'
 import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Category, StackingColumnSeries, Tooltip } from '@syncfusion/ej2-react-charts';
 
 import { stackedCustomSeries, stackedPrimaryXAxis, stackedPrimaryYAxis } from '../../data/dummy';
+import { useActiveMenu } from '../../contexts/ContextProvider';
+
 const Stacked = ({width,height}) => {
 
+  const {currentMode} = useActiveMenu()
 
 
   return (
-    <div>
+    <div >
       <ChartComponent
       id="charts"
       primaryXAxis={stackedPrimaryXAxis}
@@ -16,8 +19,8 @@ const Stacked = ({width,height}) => {
       height={height}
       chartArea={{ border: { width: 0 } }}
       tooltip={{ enable: true }}
-    
-      legendSettings={{ background: 'white' }}
+      background={ currentMode === 'Dark' ? '#33373E' :'#fff'  }
+
     >
       <Inject services={[StackingColumnSeries, Category, Legend, Tooltip]} />
       <SeriesCollectionDirective>

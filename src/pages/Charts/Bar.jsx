@@ -3,9 +3,11 @@ import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Leg
 
 import { barCustomSeries, barPrimaryXAxis, barPrimaryYAxis } from '../../data/dummy';
 import { ChartsHeader } from '../../components';
+import { useActiveMenu } from '../../contexts/ContextProvider';
 
 const Bar = () => {
-  
+
+  const {currentMode} = useActiveMenu()
 
   return (
     <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
@@ -18,7 +20,7 @@ const Bar = () => {
           chartArea={{ border: { width: 0 } }}
           tooltip={{ enable: true }}
       
-          legendSettings={{ background: 'white' }}
+          background={ currentMode === 'Dark' ? '#33373E' :'#fff'  }
         >
           <Inject services={[ColumnSeries, Legend, Tooltip, Category, DataLabel]} />
           <SeriesCollectionDirective>
