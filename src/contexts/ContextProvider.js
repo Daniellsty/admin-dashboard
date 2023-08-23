@@ -22,11 +22,15 @@ const ContextProvider = ({children}) => {
     const setMode=(e)=>{
         setCurrentMode(e.target.value)
         localStorage.setItem('currentMode',e.target.value)
+        setThemeSetting(false)
     }
 
     const setColor=(e)=>{
         setCurrentColor(e)
         localStorage.setItem('currentColor',e)
+
+        setThemeSetting(false)
+
     }
     
     const handleClick=(clicked)=>{

@@ -25,8 +25,9 @@ import {
 import { useActiveMenu } from "./contexts/ContextProvider";
 
 function App() {
-  const { activeMenu, setActiveMenu,themeSetting ,setThemeSetting} = useActiveMenu();
-  console.log(themeSetting);
+  const { activeMenu, setActiveMenu,themeSetting ,setThemeSetting,currentColor} = useActiveMenu();
+  
+
   return (
     <div>
       <BrowserRouter>
@@ -37,7 +38,7 @@ function App() {
                 type="button"
                 style={{ color: "blue" }}
                 className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray">
-                <FiSettings onClick={()=> setThemeSetting(true)} />
+                <FiSettings style={{color:currentColor}} onClick={()=> setThemeSetting(true)} />
               </button>
             </TooltipComponent>
           </div>
@@ -89,7 +90,7 @@ function App() {
                 <Route path="/stacked" element={<Stacked />} />
               </Routes>
             </div>
-            <Footer />
+         
           </div>
         </div>
       </BrowserRouter>

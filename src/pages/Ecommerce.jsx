@@ -7,6 +7,7 @@ import { SparklineAreaData } from "../data/dummy";
 import { useActiveMenu } from "../contexts/ContextProvider";
 
 const Ecommerce = () => {
+  const {currentColor} = useActiveMenu()
   return (
     <div className="mt-24 ">
       <div className="flex flex-wrap  lg:flex-nowrap px-5">
@@ -15,7 +16,7 @@ const Ecommerce = () => {
           <h1 className="text-black font-bold text-2xl">$ 323,323.32</h1>
           <div className="mt-5">
             <Button
-              bgColor="blue"
+              bgColor={currentColor}
               color="white"
               size="md"
               text="Donwload"
@@ -98,9 +99,10 @@ const Ecommerce = () => {
               <div className="my-5">
                 <Button
                   color="white"
-                  bgColor="blue"
+                  bgColor={currentColor}
                   text="Download Report"
                   borderRadius="10px"
+                  
                 />
               </div>
             </div>
