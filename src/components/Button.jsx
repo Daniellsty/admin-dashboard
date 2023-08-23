@@ -5,7 +5,7 @@ const Button = ({bgColor, color, size, text, borderRadius}) => {
   const { cancelhandleClick } = useActiveMenu();
 
   return <div>
-    <button onClick={()=> cancelhandleClick('chat')} style={{backgroundColor:bgColor,color,borderRadius}} 
+    <button onClick={()=> cancelhandleClick()} style={{backgroundColor:bgColor,color,borderRadius}} 
     className={`text-${size} p-3 hover:drop-shadow-xl`}
     >
       {text}
